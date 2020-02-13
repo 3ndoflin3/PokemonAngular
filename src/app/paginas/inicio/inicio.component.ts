@@ -46,11 +46,15 @@ export class InicioComponent implements OnInit {
         console.debug(data);
         this.listaPokemon = data;
 
+        this.habilidades = data.map(habilidades => habilidades.habilidad);
+        console.debug(this.habilidades);
+/* ------------------------------------------------------------------------------------------------------------ */
         /* data.forEach(habilidad => {
           console.log(habilidad);
           return this.habilidades = data.map(habilidad => habilidad.nombre);
 
         }); */
+/* ------------------------------------------------------------------------------------------------------------ */
 
         console.debug('habilidades %o', this.habilidades)
       },
