@@ -35,6 +35,13 @@ export class PokemonService implements IPokemonService {
     throw new Error("Method not implemented.");
   }
 
+  update(id: number): Observable<any>{
+
+  const url = 'http://localhost:8080/pokemon-rest/api/pokemon/';
+    
+  return this.http.get(url);
+
+  }
 
 
 

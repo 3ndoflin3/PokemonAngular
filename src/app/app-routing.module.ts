@@ -2,12 +2,14 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { InicioComponent } from './paginas/inicio/inicio.component';
 import {BackofficeComponent} from './paginas/backoffice/backoffice.component';
-import {ModalComponent} from './paginas/modal/modal.component'; 
+import {PokemonFormComponent} from './paginas/pokemon-form/pokemon-form.component';
+import {FormularioComponent} from './paginas/formulario/formulario.component';
 
 const routes: Routes = [
   { path: '', component: InicioComponent },
-  { path: 'backoffice', component: BackofficeComponent }
-  
+  { path: 'backoffice', component: BackofficeComponent},
+  { path: 'formulario', component: FormularioComponent},
+  { path: 'pokemonForm', component: PokemonFormComponent}
 ];
 
 @NgModule({
@@ -26,7 +28,11 @@ export const RUTAS = [
     "nombre": "Backoffice"
   },
   {
-    "enlace": "modalcomponent",
-    "nombre": "Modal"
+    "enlace": "formulario",
+    "nombre": "Formulario"
+  },
+  {
+    "enlace": "pokemonForm",
+    "nombre": "Pokemon"
   }
 ];
