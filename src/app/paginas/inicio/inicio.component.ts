@@ -56,7 +56,7 @@ export class InicioComponent implements OnInit {
         }); */
 /* ------------------------------------------------------------------------------------------------------------ */
 
-        console.debug('habilidades %o', this.habilidades)
+        //console.debug('habilidades %o', this.habilidades)
       },
 
       error => {

@@ -9,6 +9,8 @@ import { InicioComponent } from './paginas/inicio/inicio.component';
 import { NavbarComponent } from './componentes/navbar/navbar.component';
 import { FooterComponent } from './componentes/footer/footer.component';
 import { HttpClientModule } from '@angular/common/http';
+import { PokemonFormComponent } from './paginas/pokemon-form/pokemon-form.component';
+import { BackofficeComponent } from './paginas/backoffice/backoffice.component';
 
 
 @NgModule({
@@ -16,7 +18,9 @@ import { HttpClientModule } from '@angular/common/http';
     AppComponent,
     InicioComponent,
     NavbarComponent,
-    FooterComponent
+    FooterComponent,
+    PokemonFormComponent,
+    BackofficeComponent
   ],
   imports: [
     BrowserModule,
