@@ -74,4 +74,11 @@ export class PokemonFormComponent implements OnInit {
 
   }//seleccionarPokemon
   
+
+  enviar( formData ) {
+    console.debug('click en enviar %o', formData);
+    // TODO llamar servicio
+  }/* enviar */
+
+
 }
