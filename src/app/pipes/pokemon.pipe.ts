@@ -12,7 +12,7 @@ export class PokemonPipe implements PipeTransform {
 
     console.debug('Lista de pokemons en el pipe %o', pokemons);
 
-    if(busqueda != ''){
+    if(busqueda && busqueda.trim().length > 3){
 
       resultado = resultado.filter( el => 
         el.nombre.includes(busqueda)
