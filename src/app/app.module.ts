@@ -13,6 +13,7 @@ import { PokemonFormComponent } from './paginas/pokemon-form/pokemon-form.compon
 import { BackofficeComponent } from './paginas/backoffice/backoffice.component';
 import { FormularioComponent } from './paginas/formulario/formulario.component';
 import { PokemonPipe } from './pipes/pokemon.pipe';
+import { MensajeComponent } from './componentes/mensaje/mensaje.component';
 
 
 @NgModule({
@@ -24,7 +25,8 @@ import { PokemonPipe } from './pipes/pokemon.pipe';
     PokemonFormComponent,
     BackofficeComponent,
     FormularioComponent,
-    PokemonPipe
+    PokemonPipe,
+    MensajeComponent
   ],
   imports: [
     BrowserModule,
