@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { IPokemonService } from './Ipokemon.service';
 import { Observable } from 'rxjs';
+import { Pokemon } from '../model/pokemon';
 
 @Injectable({
   providedIn: 'root'
@@ -39,10 +40,26 @@ export class PokemonService implements IPokemonService {
 
   const url = 'http://localhost:8080/pokemon-rest/api/pokemon/';
     
-  return this.http.get(url);
+    /* return this.http.post('/api', urlSearchParams).subscribe(
+      data => {
+        alert('ok');
+      },
+      error => {
+        console.log(JSON.stringify(error.json()));
+      }
+    ); */
+    throw new Error('Not implemented yet');
 
   }
 
+
+
+  crear(pokemon: Pokemon): Observable<any>{
+    const url = 'http://localhost:8080/pokemon-rest/api/pokemon/';
+
+
+    return this.http.post<any>(url, pokemon);
+  }
 
 
 

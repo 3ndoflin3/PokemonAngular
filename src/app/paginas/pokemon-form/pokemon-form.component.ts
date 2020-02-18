@@ -12,6 +12,9 @@ export class PokemonFormComponent implements OnInit {
   pokemonSeleccionado: Pokemon;
   habilidades: Set<any>;
   hayPokemon: boolean;
+  pokemon: Pokemon;
+
+
 
   constructor(private pokemonService: PokemonService) {
     console.trace('InicioComponent constructor')
@@ -80,5 +83,26 @@ export class PokemonFormComponent implements OnInit {
     // TODO llamar servicio
   }/* enviar */
 
+
+  crear(pokemon){// data informacion que te llega en la peticion, error si da error, y el () lo hace siempre 
+    this.pokemonService.crear(pokemon).subscribe(
+      data => {
+        console.log('Data del post %o', pokemon);
+        this.pokemon = data;
+    },
+
+    error =>{
+      console.error('Error en el metodo POST');
+
+    },
+
+    () => {
+      console.log('Finally del Post');
+
+    }
+    
+    );
+
+  }
 
 }
