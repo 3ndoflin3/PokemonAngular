@@ -54,11 +54,12 @@ export class PokemonService implements IPokemonService {
 
 
 
-  crear(pokemon: Pokemon): Observable<any>{
+  crear(pokemon: Pokemon): Observable<Pokemon>{
     const url = 'http://localhost:8080/pokemon-rest/api/pokemon/';
+    //const url = 'http://192.168.0.69:8080/pokemon-rest/api/pokemon/';
+    console.debug('metodo crear');
 
-
-    return this.http.post<any>(url, pokemon);
+    return this.http.post<Pokemon>(url, pokemon);
   }
 
 

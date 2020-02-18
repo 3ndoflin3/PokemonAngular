@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Pokemon } from 'src/app/model/pokemon';
 import { PokemonService } from 'src/app/services/pokemon.service';
+import { FormGroup, FormBuilder, FormControl, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-pokemon-form',
@@ -13,13 +14,24 @@ export class PokemonFormComponent implements OnInit {
   habilidades: Set<any>;
   hayPokemon: boolean;
   pokemon: Pokemon;
+  formulario: FormGroup;
 
 
-
-  constructor(private pokemonService: PokemonService) {
+  constructor(private pokemonService: PokemonService, private builder: FormBuilder) {
     console.trace('InicioComponent constructor')
     this.listaPokemon = new Array<Pokemon>();
     this.habilidades = new Set<any>();
+    this.pokemon = new Pokemon();
+    //Group define un grupo de inputs
+    this.formulario = this.builder.group({
+
+      id: new FormControl(0),
+      nombre: new FormControl(
+        '', // Valor inicial
+        [Validators.required, Validators.minLength(2), Validators.maxLength(50)]
+      )
+    });
+
 
   }//constructor()
 
@@ -73,7 +85,10 @@ export class PokemonFormComponent implements OnInit {
 
   seleccionarPokemon(pokemon) {
     console.log('Click seleccionarPokemon');
-    this.pokemonSeleccionado = pokemon;
+    this.formulario.get('id').setValue(pokemon.id);
+    this.formulario.get('nombre').setValue(pokemon.nombre);
+    this.pokemonSeleccionado = new Pokemon();
+
 
   }//seleccionarPokemon
   
@@ -84,10 +99,18 @@ export class PokemonFormComponent implements OnInit {
   }/* enviar */
 
 
-  crear(pokemon){// data informacion que te llega en la peticion, error si da error, y el () lo hace siempre 
-    this.pokemonService.crear(pokemon).subscribe(
+  limpiarFormulario(){
+    this.formulario.get('id').setValue(0);
+    this.formulario.get('nombre').setValue('');
+    
+  }
+
+  crear(datosEnviados){// data informacion que te llega en la peticion, error si da error, y el () lo hace siempre 
+
+    this.pokemon.nombre = datosEnviados.nombre;
+    this.pokemonService.crear(this.pokemon).subscribe(
       data => {
-        console.log('Data del post %o', pokemon);
+        console.log('Data del post %o', datosEnviados);
         this.pokemon = data;
     },
 

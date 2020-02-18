@@ -4,6 +4,8 @@
         <input type="text" class="form-control" [(ngModel)]="pokemonBuscado" autofocus>
         <button type="submit">Buscar</button>
     </div>
+
+    <button (click) = limpiarFormulario()>Limpiate Guarro</button>
     <!-- <div class="col">
         <ul class="list-group">
             <li *ngFor="let h of habilidades" class="list-group-item {{pokemon==pokemonSeleccionado?'active':''}}"
@@ -38,12 +40,13 @@
             <div class="card-body">
                 {{ formulario.value | json }}
                 {{ formulario.status | json }}
-                <form [formGroup]="formulario" (ngSubmit) = "enviar(formulario.value)">
+                <form [formGroup]="formulario" (ngSubmit) = "crear(formulario.value)">
                     <div class="form-group">
                       <label for="exampleInputEmail1">Nombre</label>
-                      <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" value="{{pokemonSeleccionado.nombre}}">
+                      <input type="text" class="form-control" formControlName = "nombre" >
                       <small id="emailHelp" class="form-text text-muted">Introduce un nombre con mas de 1 caracter y menos de 50.</small>
                     </div><!-- END OF NAME FORM GROUP -->
+
                     <div class="form-group form-check">
                       <input type="checkbox" class="form-check-input" id="exampleCheck1">
                       <label class="form-check-label" for="exampleCheck1">Estas Seguro?</label>
