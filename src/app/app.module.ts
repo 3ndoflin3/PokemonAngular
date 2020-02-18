@@ -12,6 +12,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { PokemonFormComponent } from './paginas/pokemon-form/pokemon-form.component';
 import { BackofficeComponent } from './paginas/backoffice/backoffice.component';
 import { FormularioComponent } from './paginas/formulario/formulario.component';
+import { PokemonPipe } from './pipes/pokemon.pipe';
 
 
 @NgModule({
@@ -22,7 +23,8 @@ import { FormularioComponent } from './paginas/formulario/formulario.component';
     FooterComponent,
     PokemonFormComponent,
     BackofficeComponent,
-    FormularioComponent
+    FormularioComponent,
+    PokemonPipe
   ],
   imports: [
     BrowserModule,

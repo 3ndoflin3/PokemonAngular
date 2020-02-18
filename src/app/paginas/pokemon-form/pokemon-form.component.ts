@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { Pokemon } from 'src/app/model/pokemon';
 import { PokemonService } from 'src/app/services/pokemon.service';
 import { FormGroup, FormBuilder, FormControl, Validators } from '@angular/forms';
@@ -15,7 +15,6 @@ export class PokemonFormComponent implements OnInit {
   hayPokemon: boolean;
   pokemon: Pokemon;
   formulario: FormGroup;
-
 
   constructor(private pokemonService: PokemonService, private builder: FormBuilder) {
     console.trace('InicioComponent constructor')
@@ -183,4 +182,5 @@ export class PokemonFormComponent implements OnInit {
     
     );
   }
+
 }
