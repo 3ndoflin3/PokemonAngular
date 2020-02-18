@@ -36,20 +36,10 @@ export class PokemonService implements IPokemonService {
     throw new Error("Method not implemented.");
   }
 
-  update(id: number): Observable<any>{
-
-  const url = 'http://localhost:8080/pokemon-rest/api/pokemon/';
+  update(pokemon: Pokemon): Observable<any>{
+    const url = 'http://localhost:8080/pokemon-rest/api/pokemon/' + pokemon.id;
     
-    /* return this.http.post('/api', urlSearchParams).subscribe(
-      data => {
-        alert('ok');
-      },
-      error => {
-        console.log(JSON.stringify(error.json()));
-      }
-    ); */
-    throw new Error('Not implemented yet');
-
+    return this.http.put(url, pokemon);
   }
 
 
@@ -62,8 +52,12 @@ export class PokemonService implements IPokemonService {
     return this.http.post<Pokemon>(url, pokemon);
   }
 
+  delete(id: number){
+    const url = 'http://localhost:8080/pokemon-rest/api/pokemon/' + id;
+    //const url = 'http://192.168.0.69:8080/pokemon-rest/api/pokemon/';
+    console.debug('metodo delete');
 
-
-
+    return this.http.delete<Pokemon>(url);
+  }
 
 }

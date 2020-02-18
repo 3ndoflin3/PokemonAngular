@@ -95,7 +95,16 @@ export class PokemonFormComponent implements OnInit {
 
   enviar( formData ) {
     console.debug('click en enviar %o', formData);
-    // TODO llamar servicio
+    
+      if(formData.id ===0){
+        this.crear(formData);
+      }else{
+        this.update(formData);
+      }
+
+      this.obtenerListado();
+
+
   }/* enviar */
 
 
@@ -128,4 +137,50 @@ export class PokemonFormComponent implements OnInit {
 
   }
 
+
+  update(datosEnviados){// data informacion que te llega en la peticion, error si da error, y el () lo hace siempre 
+
+    this.pokemon.nombre = datosEnviados.nombre;
+    this.pokemon.id = datosEnviados.id;
+    this.pokemonService.update(this.pokemon).subscribe(
+      data => {
+        console.log('Data del PUT %o', datosEnviados);
+        this.pokemon = data;
+    },
+
+    error =>{
+      console.error('Error en el metodo PUT');
+
+    },
+
+    () => {
+      console.log('Finally del PUT');
+
+    }
+    
+    );
+
+  }
+
+
+  delete(id: number){
+
+    this.pokemonService.delete(id).subscribe(
+      data => {
+        console.log('ID del pokemon a eliminar %o', id);
+        this.pokemon = data;
+    },
+
+    error =>{
+      console.error('Error en el metodo DELETE');
+
+    },
+
+    () => {
+      console.log('Finally del DELETE');
+
+    }
+    
+    );
+  }
 }

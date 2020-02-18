@@ -5,7 +5,7 @@
         <button type="submit">Buscar</button>
     </div>
 
-    <button (click) = limpiarFormulario()>Limpiate Guarro</button>
+    <button (click) = limpiarFormulario()>So Clean </button>
     <!-- <div class="col">
         <ul class="list-group">
             <li *ngFor="let h of habilidades" class="list-group-item {{pokemon==pokemonSeleccionado?'active':''}}"
@@ -31,6 +31,7 @@
                 (click)="seleccionarPokemon(pokemon);comprobarPokemon(pokemon)">
                 <b>{{pokemon.id}}</b>
                 <div class=" listado">{{pokemon.nombre}}
+                    <button (click) = "delete(pokemon.id)">DEL</button>
                 </div>
             </li>
         </ul>
@@ -40,7 +41,7 @@
             <div class="card-body">
                 {{ formulario.value | json }}
                 {{ formulario.status | json }}
-                <form [formGroup]="formulario" (ngSubmit) = "crear(formulario.value)">
+                <form [formGroup]="formulario" (ngSubmit) = "enviar(formulario.value)">
                     <div class="form-group">
                       <label for="exampleInputEmail1">Nombre</label>
                       <input type="text" class="form-control" formControlName = "nombre" >
@@ -51,7 +52,7 @@
                       <input type="checkbox" class="form-check-input" id="exampleCheck1">
                       <label class="form-check-label" for="exampleCheck1">Estas Seguro?</label>
                     </div> <!-- END OF CHECKBOX FORMGROUP -->
-                    <input type="submit" [disabled]="formulario.invalid" class="btn btn-primary" value="Crear / Modificar">
+                    <input type="submit" [disabled]="formulario.invalid" class="btn btn-primary" value="Crear">
                 </form> <!-- END OF FORM -->
             </div> <!-- END OF CARD BODY -->
         </div><!-- END OF CARD -->
