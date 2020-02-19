@@ -17,5 +17,8 @@ export class Pokemon {
         this.habilidades = [];
     }
 
+    addHabilidad( habilidad : string){
+        this.habilidades.push(habilidad);
+    }
 
 }

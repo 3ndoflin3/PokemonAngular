@@ -28,11 +28,23 @@ export class PokemonFormComponent implements OnInit {
       nombre: new FormControl(
         '', // Valor inicial
         [Validators.required, Validators.minLength(2), Validators.maxLength(50)]
-      )
+      ),
+      imagen: new FormControl('', [Validators.required, Validators.minLength(2), Validators.maxLength(200)]),
+      habilidades : this.builder.array([this.createHabilidadesFormGroup()], Validators.minLength(3))
     });
 
 
   }//constructor()
+
+
+  createHabilidadesFormGroup(): FormGroup{
+    console.log('Formulario Pokemon ');
+    return this.builder.group({
+      nombre: ['', [Validators.required, Validators.minLength(2)]]
+    }); 
+
+  }
+
 
   ngOnInit() {
     console.trace('InicioComponent ngOnInit');
@@ -181,6 +193,41 @@ export class PokemonFormComponent implements OnInit {
     }
     
     );
+  }
+
+
+  
+  /**-
+   * Evento para crear un nuevo ingrediente
+   */
+
+  clickOtraHabilidad(){
+    console.log('FormularioComponent ClickOtraHabilidad');
+    if(this.habilidades.size > 1){
+      this.habilidades.add( this.createHabilidadesFormGroup());
+    }
+  }
+
+  submit(){
+    console.log('FormularioComponent onSubmit');
+
+    //Recoger datos del formulario
+    let pokemon = this.mapear
+
+  }
+
+  mapearFormularioPokemon(form : FormGroup) : Pokemon{
+
+    let pokemon = new Pokemon();
+    pokemon.nombre = form.value.nombre;
+    pokemon.imagen = form.value.imagen;
+    
+    //Recuperar las habilidades
+    form.value.habilidades.map(el => {
+      pokemon.addIngrediente(el.nombre);
+    })
+
+    return pokemon;
   }
 
 }
