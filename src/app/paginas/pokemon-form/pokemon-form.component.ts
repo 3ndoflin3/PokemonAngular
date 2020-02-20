@@ -2,6 +2,7 @@ import { Component, OnInit, Input } from '@angular/core';
 import { Pokemon } from 'src/app/model/pokemon';
 import { PokemonService } from 'src/app/services/pokemon.service';
 import { FormGroup, FormBuilder, FormControl, Validators } from '@angular/forms';
+import { Habilidad } from 'src/app/model/habilidad';
 
 @Component({
   selector: 'app-pokemon-form',
@@ -14,6 +15,7 @@ export class PokemonFormComponent implements OnInit {
   habilidades: Set<any>;
   hayPokemon: boolean;
   pokemon: Pokemon;
+  habilidade: Habilidad;
   formulario: FormGroup;
 
   constructor(private pokemonService: PokemonService, private builder: FormBuilder) {
@@ -215,6 +217,27 @@ export class PokemonFormComponent implements OnInit {
     let pokemon = this.mapearFormularioPokemon(this.formulario);
 
     //Llamar
+  }
+
+
+  getHabilidades(){
+    this.pokemonService.getAllHabilidades().subscribe(
+        data => {
+        console.debug('Get Habilidades %o', data);
+        this.pokemon = data;
+    },
+
+    error =>{
+      console.error('Error en el metodo getHabilidades');
+
+    },
+
+    () => {
+      console.log('Finally del getHabilidades');
+
+    }
+    
+    );
   }
 
   mapearFormularioPokemon(form : FormGroup) : Pokemon{

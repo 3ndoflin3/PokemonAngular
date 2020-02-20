@@ -60,4 +60,9 @@ export class PokemonService implements IPokemonService {
     return this.http.delete<Pokemon>(url);
   }
 
+  getAllHabilidades(): Observable<any> {
+    const url = 'http://localhost:8080/pokemon-rest/api/habilidad/'
+    console.trace('PokemonService getAllHabilidades ' + url);
+    return this.http.get(url);
+  }
 }
