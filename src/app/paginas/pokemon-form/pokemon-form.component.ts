@@ -15,7 +15,7 @@ export class PokemonFormComponent implements OnInit {
   habilidades: Set<any>;
   hayPokemon: boolean;
   pokemon: Pokemon;
-  habilidade: Habilidad;
+  
   formulario: FormGroup;
 
   constructor(private pokemonService: PokemonService, private builder: FormBuilder) {
@@ -72,8 +72,7 @@ export class PokemonFormComponent implements OnInit {
         console.debug(data);
         this.listaPokemon = data;
 
-        this.habilidades = data.map(habilidades => habilidades.habilidad);
-        console.debug(this.habilidades);
+        
 /* ------------------------------------------------------------------------------------------------------------ */
         /* data.forEach(habilidad => {
           console.log(habilidad);
@@ -198,10 +197,6 @@ export class PokemonFormComponent implements OnInit {
   }
 
 
-  
-  /**-
-   * Evento para crear un nuevo ingrediente
-   */
 
   clickOtraHabilidad(){
     console.log('FormularioComponent ClickOtraHabilidad');
@@ -224,7 +219,7 @@ export class PokemonFormComponent implements OnInit {
     this.pokemonService.getAllHabilidades().subscribe(
         data => {
         console.debug('Get Habilidades %o', data);
-        this.pokemon = data;
+        this.habilidades = data;
     },
 
     error =>{

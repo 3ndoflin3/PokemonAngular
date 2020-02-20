@@ -41,6 +41,7 @@
             <div class="card-body">
                 {{ formulario.value | json }}
                 {{ formulario.status | json }}
+                {{habilidades | json}}
                 <br>    
                 <form [formGroup]="formulario" (ngSubmit) = "enviar(formulario.value)">
                     <div class="form-group">
