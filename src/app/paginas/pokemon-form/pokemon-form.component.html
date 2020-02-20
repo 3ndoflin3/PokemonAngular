@@ -41,11 +41,17 @@
             <div class="card-body">
                 {{ formulario.value | json }}
                 {{ formulario.status | json }}
+                <br>    
                 <form [formGroup]="formulario" (ngSubmit) = "enviar(formulario.value)">
                     <div class="form-group">
-                      <label for="exampleInputEmail1">Nombre</label>
+                      <label >Nombre</label>
                       <input type="text" class="form-control" formControlName = "nombre" >
                       <small id="emailHelp" class="form-text text-muted">Introduce un nombre con mas de 1 caracter y menos de 50.</small>
+                      <br>
+                      <label >Imagen</label>
+                      <input type="text" class="form-control" formControlName = "imagen" >
+                      <small id="emailHelp" class="form-text text-muted">Introduce el enlace de la imagen.</small>
+
                     </div><!-- END OF NAME FORM GROUP -->
 
                     <div class="form-group form-check">

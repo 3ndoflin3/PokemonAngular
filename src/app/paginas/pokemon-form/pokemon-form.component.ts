@@ -212,8 +212,9 @@ export class PokemonFormComponent implements OnInit {
     console.log('FormularioComponent onSubmit');
 
     //Recoger datos del formulario
-    let pokemon = this.mapear
+    let pokemon = this.mapearFormularioPokemon(this.formulario);
 
+    //Llamar
   }
 
   mapearFormularioPokemon(form : FormGroup) : Pokemon{
@@ -224,10 +225,13 @@ export class PokemonFormComponent implements OnInit {
     
     //Recuperar las habilidades
     form.value.habilidades.map(el => {
-      pokemon.addIngrediente(el.nombre);
-    })
+      pokemon.addHabilidad(el.nombre);
+    });
 
     return pokemon;
-  }
+  }//END OF MAPPER
+
+  
+
 
 }
