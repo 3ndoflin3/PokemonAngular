@@ -74,11 +74,7 @@ export class PokemonFormComponent implements OnInit {
 
         
 /* ------------------------------------------------------------------------------------------------------------ */
-        /* data.forEach(habilidad => {
-          console.log(habilidad);
-          return this.habilidades = data.map(habilidad => habilidad.nombre);
-
-        }); */
+        this.getHabilidades();
 /* ------------------------------------------------------------------------------------------------------------ */
 
         //console.debug('habilidades %o', this.habilidades)
@@ -108,7 +104,7 @@ export class PokemonFormComponent implements OnInit {
   enviar( formData ) {
     console.debug('click en enviar %o', formData);
     
-      if(formData.id ===0){
+      if(formData.id === 0){
         this.crear(formData);
       }else{
         this.update(formData);

@@ -65,4 +65,6 @@ export class PokemonService implements IPokemonService {
     console.trace('PokemonService getAllHabilidades ' + url);
     return this.http.get(url);
   }
+
+  
 }

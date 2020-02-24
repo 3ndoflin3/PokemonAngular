@@ -5,11 +5,14 @@ import {BackofficeComponent} from './paginas/backoffice/backoffice.component';
 import {PokemonFormComponent} from './paginas/pokemon-form/pokemon-form.component';
 import {FormularioComponent} from './paginas/formulario/formulario.component';
 
+
 const routes: Routes = [
   { path: '', component: InicioComponent },
   { path: 'backoffice', component: BackofficeComponent},
   { path: 'formulario', component: FormularioComponent},
   { path: 'pokemonForm', component: PokemonFormComponent}
+
+
 ];
 
 @NgModule({
@@ -34,5 +37,6 @@ export const RUTAS = [
   {
     "enlace": "pokemonForm",
     "nombre": "Pokemon"
-  }
+  },
+
 ];
