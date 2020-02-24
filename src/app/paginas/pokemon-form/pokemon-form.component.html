@@ -31,6 +31,7 @@
                 class="list-group-item {{pokemon==pokemonSeleccionado?'active':''}}"
                 (click)="seleccionarPokemon(pokemon);comprobarPokemon(pokemon)">
                 <b>{{pokemon.id}}</b>
+                <img src="{{pokemon.imagen}}" alt="" class ="w-25 h-25">
                 <div class=" listado">{{pokemon.nombre}}
                     <button (click) = "delete(pokemon.id)">DEL</button>
                 </div>
@@ -48,11 +49,11 @@
                     <div class="form-group">
                       <label >Nombre</label>
                       <input type="text" class="form-control" formControlName = "nombre" >
-                      <small id="emailHelp" class="form-text text-muted">Introduce un nombre con mas de 1 caracter y menos de 50.</small>
+                      <small class="form-text text-muted">Introduce un nombre con mas de 1 caracter y menos de 50.</small>
                       <br>
                       <label >Imagen</label>
                       <input type="text" class="form-control" formControlName = "imagen" >
-                      <small id="emailHelp" class="form-text text-muted">Introduce el enlace de la imagen.</small>
+                      <small class="form-text text-muted">Introduce el enlace de la imagen.</small>
 
                     </div><!-- END OF NAME FORM GROUP -->
 
