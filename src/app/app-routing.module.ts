@@ -4,13 +4,15 @@ import { InicioComponent } from './paginas/inicio/inicio.component';
 import {BackofficeComponent} from './paginas/backoffice/backoffice.component';
 import {PokemonFormComponent} from './paginas/pokemon-form/pokemon-form.component';
 import {FormularioComponent} from './paginas/formulario/formulario.component';
+import { CrearComponent } from './paginas/crear/crear.component';
 
 
 const routes: Routes = [
   { path: '', component: InicioComponent },
   { path: 'backoffice', component: BackofficeComponent},
   { path: 'formulario', component: FormularioComponent},
-  { path: 'pokemonForm', component: PokemonFormComponent}
+  { path: 'pokemonForm', component: PokemonFormComponent},
+  { path: 'crear', component: CrearComponent}
 
 
 ];
@@ -38,5 +40,9 @@ export const RUTAS = [
     "enlace": "pokemonForm",
     "nombre": "Pokemon"
   },
+  {
+    "enlace": "crear",
+    "nombre": "Crear"
+  }
 
 ];

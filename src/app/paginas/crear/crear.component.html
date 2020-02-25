@@ -1,0 +1,54 @@
+<div class="row">
+
+    <div class="col">
+        <input class="btn btn-secondary" type="button" value="Nuevo" (click)="limpiarFormulario()">
+    </div>
+
+</div>
+
+{{ formulario.value | json}}
+{{ formulario.status | json }}
+
+<!--FIN DEL ROW 1-->
+<div class="row">
+    <div class="col-md-6">
+        <ul class="list-group">
+            <li class="list-group-item lista {{(p == pokemonSeleccionado)?'active': ''}}"
+                (click)="seleccionarPokemon(p)" *ngFor="let p of listaPokemon">
+                <div class="contenedor-lista">
+                    <b>{{p.id}}</b><img src="{{p.imagen}}" class="imagen" alt="imagen del pokemon {{p.nombre}}"> -
+                    <span>
+                        {{p.nombre | titlecase }}</span>
+                    <button class="fas fa-trash-alt boton-eliminar" (click)="eliminarPokemon(p)">Eliminar</button>
+                </div>
+            </li>
+        </ul>
+    </div>
+    <div class="col">
+        <form action="enviar" [formGroup]="formulario" (ngSubmit)="enviarFormulario(formulario.value)">
+            <div class="form-group">
+                <label for="nombre">Nombre</label>
+                <input type="text" class="form-control" formControlName="nombre" autofocus>
+                <small class="form-text text-muted  mb-3">Mínimo 2 y máximo 50 carácteres</small>
+                <label for="imagen">Imagen</label>
+                <input type="text" class="form-control mb-3" formControlName="imagen" autofocus>
+                <small class="form-text text-muted  mb-3">Debes introducir una url válida</small>
+
+                {{habilidades |json}}
+                <!--ZONA DE HABILIDADES-->
+                <div *ngFor="let h of habilidades">
+                    <div class="custom-control custom-checkbox">
+                        <input type="checkbox" class="custom-control-input" name="options" value="{{h.id}}"
+                            (change)="checkCambiado(h)" id="check{{h.id}}" [checked]="h.checked">
+                        <label class="custom-control-label" for="check{{h.id}}">{{h.nombre | titlecase }}</label>
+                    </div>
+
+                </div>
+                <button type=" submit" [disabled]="formulario.invalid"
+                    class="btn btn-primary btn-block">{{(pokemonSeleccionado.id===0)?'Crear':'Actualizar'}}</button>
+
+            </div>
+
+        </form>
+    </div>
+    <!--cierre segundo row-->

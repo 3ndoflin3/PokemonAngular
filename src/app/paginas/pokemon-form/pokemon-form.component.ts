@@ -31,8 +31,8 @@ export class PokemonFormComponent implements OnInit {
         '', // Valor inicial
         [Validators.required, Validators.minLength(2), Validators.maxLength(50)]
       ),
-      imagen: new FormControl('', [Validators.required, Validators.minLength(2), Validators.maxLength(200)]),
-      habilidades : this.builder.array([this.createHabilidadesFormGroup()], Validators.minLength(3))
+      imagen: new FormControl('', [Validators.required, Validators.minLength(2), Validators.maxLength(200)])
+      /* habilidades : this.builder.array([this.createHabilidadesFormGroup()], Validators.minLength(3)) */
     });
 
 
@@ -125,7 +125,7 @@ export class PokemonFormComponent implements OnInit {
   crear(datosEnviados){// data informacion que te llega en la peticion, error si da error, y el () lo hace siempre 
 
     this.pokemon.nombre = datosEnviados.nombre;
-    this.pokemonService.crear(this.pokemon).subscribe(
+    this.pokemonService.createPokemon(this.pokemon).subscribe(
       data => {
         console.log('Data del post %o', datosEnviados);
         this.pokemon = data;
@@ -150,7 +150,7 @@ export class PokemonFormComponent implements OnInit {
 
     this.pokemon.nombre = datosEnviados.nombre;
     this.pokemon.id = datosEnviados.id;
-    this.pokemonService.update(this.pokemon).subscribe(
+    this.pokemonService.updatePokemon(this.pokemon).subscribe(
       data => {
         console.log('Data del PUT %o', datosEnviados);
         this.pokemon = data;
