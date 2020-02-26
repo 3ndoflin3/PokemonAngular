@@ -290,7 +290,7 @@ export class CrearComponent implements OnInit {
             console.debug('Datos obtenidos %o', data);
             this.mensaje.tipoMensaje = 'success';
             this.mensaje.mensaje = 'Se he creado correctamente el pokemon ' + this.pokemon.nombre + '.';
-            this.obtenerListado();
+            
           },
   
           error => {
@@ -300,7 +300,8 @@ export class CrearComponent implements OnInit {
           },
   
           () => {
-            console.debug('Finaliza la petición')
+            console.debug('Finaliza la petición');
+            this.obtenerListado();
           }
         );
       } else {

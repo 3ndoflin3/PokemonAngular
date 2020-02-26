@@ -35,7 +35,7 @@ export class PokemonService implements IPokemonService {
     const url = 'http://localhost:8080/pokemon-rest/api/pokemon/' + id;
 
     //const url = 'http://localhost:3000/pokemon/' + id; 
-    console.trace('PoekemonService getById ' + url); 
+    console.trace('PokemonService getById ' + url); 
     return this.http.get(url);
 
   }
