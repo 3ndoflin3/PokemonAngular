@@ -157,9 +157,33 @@ export class CrearComponent implements OnInit {
   
     marcarHabilidades(pokemon: Pokemon) {
       console.trace('marcarHabilidades(pokemon: Pokemon) ')
-      //Cojemos las habilidades y hacemos un map, recorremos cada una de ellas 
-      
-  
+       //Cojemos las habilidades y hacemos un map, recorremos cada una de ellas 
+    if (pokemon) {
+      this.habilidades = this.habilidades.map(h => {
+        console.debug('map');
+
+        //Sacamos la posición de cada habilidad y las comparamos con las del pokemon
+        const posicion = this.pokemonSeleccionado.habilidades.findIndex(el => el.id === h.id);
+        if (posicion !== -1) {
+          h.checked = true;
+          //Guardamos en el array
+
+          //this.habilidades.forEach(h => this.habilidades.push(h));
+
+          //Guardamos en el formulario
+
+          const habilidad = this.crearFormGroupHabilidad();
+
+          habilidad.get('id').setValue(h.id);
+          habilidad.get('nombre').setValue(h.nombre);
+          this.formHabilidades.push(habilidad);
+
+        } else {
+          h.checked = false;
+        }
+        return h;
+      });
+    }
     }
   
     // Método para obtener todos los pokemon
