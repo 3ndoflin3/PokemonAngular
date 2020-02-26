@@ -9,9 +9,6 @@ import { InicioComponent } from './paginas/inicio/inicio.component';
 import { NavbarComponent } from './componentes/navbar/navbar.component';
 import { FooterComponent } from './componentes/footer/footer.component';
 import { HttpClientModule } from '@angular/common/http';
-import { PokemonFormComponent } from './paginas/pokemon-form/pokemon-form.component';
-import { BackofficeComponent } from './paginas/backoffice/backoffice.component';
-import { FormularioComponent } from './paginas/formulario/formulario.component';
 import { PokemonPipe } from './pipes/pokemon.pipe';
 import { CrearComponent } from './paginas/crear/crear.component';
 
@@ -22,9 +19,6 @@ import { CrearComponent } from './paginas/crear/crear.component';
     InicioComponent,
     NavbarComponent,
     FooterComponent,
-    PokemonFormComponent,
-    BackofficeComponent,
-    FormularioComponent,
     PokemonPipe,
     CrearComponent
   ],
