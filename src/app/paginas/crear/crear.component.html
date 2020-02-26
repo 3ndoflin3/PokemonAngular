@@ -40,6 +40,7 @@
                     <div class="custom-control custom-checkbox">
                         <input type="checkbox" class="custom-control-input" name="options" value="{{h.id}}"
                             (change)="checkCambiado(h)" id="check{{h.id}}" [checked]="h.checked">
+                            <p>{{h | json}}</p>
                         <label class="custom-control-label" for="check{{h.id}}">{{h.nombre | titlecase }}</label>
                     </div>
 

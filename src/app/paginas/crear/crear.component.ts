@@ -190,7 +190,8 @@ export class CrearComponent implements OnInit {
         data => {
           console.debug(data);
           this.habilidades = data.map(el => {
-            return { nombre: el.nombre, id: el.id, checked: false }
+            console.debug('GET habilidades %o', el);
+            return { nombre: el.Habilidad, id: el.id, checked: false }
           });
         },
   

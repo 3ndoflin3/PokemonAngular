@@ -6,7 +6,7 @@ export class Pokemon {
 
     nombre: string;
     imagen: string;
-    habilidades: Array<String>;
+    habilidades: Array<any>;
 
 
 

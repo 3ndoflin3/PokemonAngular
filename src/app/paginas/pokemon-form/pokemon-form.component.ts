@@ -12,7 +12,7 @@ import { Habilidad } from 'src/app/model/habilidad';
 export class PokemonFormComponent implements OnInit {
   listaPokemon: Array<Pokemon>;
   pokemonSeleccionado: Pokemon;
-  habilidades: Set<any>;
+  habilidades: Array<any>;
   hayPokemon: boolean;
   pokemon: Pokemon;
   formHabilidades: FormArray;
@@ -22,7 +22,7 @@ export class PokemonFormComponent implements OnInit {
   constructor(private pokemonService: PokemonService, private builder: FormBuilder) {
     console.trace('InicioComponent constructor')
     this.listaPokemon = new Array<Pokemon>();
-    this.habilidades = new Set<any>();
+    this.habilidades = new Array<any>();
     this.pokemon = new Pokemon();
     //Group define un grupo de inputs
     this.formulario = this.builder.group({
@@ -100,7 +100,7 @@ export class PokemonFormComponent implements OnInit {
         this.getHabilidades();
 /* ------------------------------------------------------------------------------------------------------------ */
 
-        //console.debug('habilidades %o', this.habilidades)
+        console.debug('habilidades %o', this.habilidades)
       },
 
       error => {
@@ -150,6 +150,7 @@ export class PokemonFormComponent implements OnInit {
   limpiarFormulario(){
     this.formulario.get('id').setValue(0);
     this.formulario.get('nombre').setValue('');
+    this.formulario.get('imagen').setValue('');
     
   }
 
@@ -278,10 +279,10 @@ export class PokemonFormComponent implements OnInit {
     //Cojemos las habilidades y hacemos un map, recorremos cada una de ellas 
     if (pokemon) {
       this.habilidades = this.habilidades.map(h => {
-        console.debug('map');
+        console.debug('map %o', pokemon );
 
         //Sacamos la posición de cada habilidad y las comparamos con las del pokemon
-        const posicion = this.pokemonSeleccionado.habilidades.findIndex(el => el.id === h.id);
+        const posicion = this.pokemon.habilidades.findIndex(el => el.id === h.id);
         if (posicion !== -1) {
           h.checked = true;
           //Guardamos en el array
