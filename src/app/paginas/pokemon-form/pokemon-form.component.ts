@@ -31,8 +31,8 @@ export class PokemonFormComponent implements OnInit {
         '', // Valor inicial
         [Validators.required, Validators.minLength(2), Validators.maxLength(50)]
       ),
-      imagen: new FormControl('', [Validators.required, Validators.minLength(2), Validators.maxLength(200)])
-      /* habilidades : this.builder.array([this.createHabilidadesFormGroup()], Validators.minLength(3)) */
+      imagen: new FormControl('', [Validators.required, Validators.minLength(2), Validators.maxLength(200)]),
+       habilidades : this.builder.array([], Validators.minLength(1))
     });
 
 
@@ -71,6 +71,7 @@ export class PokemonFormComponent implements OnInit {
       data => {
         console.debug(data);
         this.listaPokemon = data;
+        
 
         
 /* ------------------------------------------------------------------------------------------------------------ */

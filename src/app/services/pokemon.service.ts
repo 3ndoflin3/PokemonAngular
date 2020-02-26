@@ -17,7 +17,8 @@ export class PokemonService implements IPokemonService {
 
   //Obtenemos el listado de todos los pokemons
   getAll(): Observable<any> {
-    const url = 'http://localhost:8080/pokemon-rest/api/pokemon/'
+    //const url = 'http://localhost:8080/pokemon-rest/api/pokemon/'
+    const url = 'http://localhost:3000/pokemon/';
     console.trace('PokemonService getAll ' + url);
     return this.http.get(url);
   }
@@ -33,35 +34,43 @@ export class PokemonService implements IPokemonService {
     throw new Error("Method not implemented.");
   }
   getById(id: number) {
-    throw new Error("Method not implemented.");
+    const url = 'http://localhost:3000/pokemon/${id}'; 
+    console.trace('PoekemonService getById ' + url); 
+    return this.http.get(url);
+
   }
 
   updatePokemon(pokemon: Pokemon): Observable<any>{
-    const url = 'http://localhost:8080/pokemon-rest/api/pokemon/' + pokemon.id;
-    
+    //const url = 'http://localhost:8080/pokemon-rest/api/pokemon/' + pokemon.id;
+    const url = 'http://localhost:3000/pokemon/${id}';
     return this.http.put(url, pokemon);
   }
 
 
 
   createPokemon(pokemon: Pokemon): Observable<Pokemon>{
-    const url = 'http://localhost:8080/pokemon-rest/api/pokemon/';
+    //const url = 'http://localhost:8080/pokemon-rest/api/pokemon/';
     //const url = 'http://192.168.0.69:8080/pokemon-rest/api/pokemon/';
+    
+    const url = 'http://localhost:3000/pokemon/';
+
     console.debug('metodo crear');
 
     return this.http.post<Pokemon>(url, pokemon);
   }
 
   delete(id: number){
-    const url = 'http://localhost:8080/pokemon-rest/api/pokemon/' + id;
+    //const url = 'http://localhost:8080/pokemon-rest/api/pokemon/' + id;
     //const url = 'http://192.168.0.69:8080/pokemon-rest/api/pokemon/';
+    const url = 'http://localhost:3000/pokemon/${id}';
     console.debug('metodo delete');
 
     return this.http.delete<Pokemon>(url);
   }
 
   getAllHabilidades(): Observable<any> {
-    const url = 'http://localhost:8080/pokemon-rest/api/habilidad/'
+    //const url = 'http://localhost:8080/pokemon-rest/api/habilidad/';
+    const url = 'http://localhost:3000/habilidades/';
     console.trace('PokemonService getAllHabilidades ' + url);
     return this.http.get(url);
   }
