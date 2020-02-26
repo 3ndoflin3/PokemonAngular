@@ -1,7 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Pokemon } from 'src/app/model/pokemon';
 import { PokemonService } from 'src/app/services/pokemon.service';
-import { FormGroup, FormBuilder, FormControl, Validators } from '@angular/forms';
+import { FormGroup, FormBuilder, FormControl, Validators, FormArray } from '@angular/forms';
 import { Habilidad } from 'src/app/model/habilidad';
 
 @Component({
@@ -15,6 +15,7 @@ export class PokemonFormComponent implements OnInit {
   habilidades: Set<any>;
   hayPokemon: boolean;
   pokemon: Pokemon;
+  formHabilidades: FormArray;
   
   formulario: FormGroup;
 
@@ -34,18 +35,39 @@ export class PokemonFormComponent implements OnInit {
       imagen: new FormControl('', [Validators.required, Validators.minLength(2), Validators.maxLength(200)]),
        habilidades : this.builder.array([], Validators.minLength(1))
     });
-
-
+    
+    // Obtenemos las habilidades del formulario y las guardamos
+    this.formHabilidades = this.formulario.get('habilidades') as FormArray;
+    
   }//constructor()
 
 
   createHabilidadesFormGroup(): FormGroup{
     console.log('Formulario Pokemon ');
     return this.builder.group({
-      nombre: ['', [Validators.required, Validators.minLength(2)]]
-    }); 
+      id: new FormControl(0),
+      nombre: new FormControl('')
+    })
 
   }
+
+  checkCambiado(option: any) {
+    // Si esta chequeado, cambiamos a no chequeado
+    console.debug('checkCambiado %o', option);
+    option.checked = !option.checked;
+
+    const habilidad = this.createHabilidadesFormGroup();
+
+    habilidad.get('id').setValue(option.id);
+    habilidad.get('nombre').setValue(option.Habilidad);
+
+    if (!option.checked) {
+      this.formHabilidades.removeAt(this.formHabilidades.value.findIndex(el => el.id === option.id));
+    } else {
+      this.formHabilidades.push(habilidad);
+    }
+
+  }// checkCambiado(option: any)
 
 
   ngOnInit() {
@@ -96,7 +118,11 @@ export class PokemonFormComponent implements OnInit {
     console.log('Click seleccionarPokemon');
     this.formulario.get('id').setValue(pokemon.id);
     this.formulario.get('nombre').setValue(pokemon.nombre);
-    this.pokemonSeleccionado = new Pokemon();
+    this.formulario.get('imagen').setValue(pokemon.imagen);
+    if (this.pokemonSeleccionado) {
+      this.marcarHabilidades(this.pokemonSeleccionado);
+    }
+    this.pokemonSeleccionado =  pokemon;
 
 
   }//seleccionarPokemon
@@ -112,7 +138,7 @@ export class PokemonFormComponent implements OnInit {
       }
 
       this.obtenerListado();
-
+      this.limpiarFormulario();
 
   }/* enviar */
 
@@ -139,7 +165,7 @@ export class PokemonFormComponent implements OnInit {
 
     () => {
       console.log('Finally del Post');
-
+      this.obtenerListado();
     }
     
     );
@@ -164,6 +190,7 @@ export class PokemonFormComponent implements OnInit {
 
     () => {
       console.log('Finally del PUT');
+      this.obtenerListado();
 
     }
     
@@ -187,6 +214,7 @@ export class PokemonFormComponent implements OnInit {
 
     () => {
       console.log('Finally del DELETE');
+      this.obtenerListado();
 
     }
     
@@ -195,12 +223,6 @@ export class PokemonFormComponent implements OnInit {
 
 
 
-  clickOtraHabilidad(){
-    console.log('FormularioComponent ClickOtraHabilidad');
-    if(this.habilidades.size > 1){
-      this.habilidades.add( this.createHabilidadesFormGroup());
-    }
-  }
 
   submit(){
     console.log('FormularioComponent onSubmit');
@@ -247,6 +269,37 @@ export class PokemonFormComponent implements OnInit {
   }//END OF MAPPER
 
   
+  marcarHabilidades(pokemon: Pokemon) {
+    console.trace('marcarHabilidades(pokemon: Pokemon) ')
+    //Cojemos las habilidades y hacemos un map, recorremos cada una de ellas 
+    if (pokemon) {
+      this.habilidades = this.habilidades.map(h => {
+        console.debug('map');
 
+        //Sacamos la posición de cada habilidad y las comparamos con las del pokemon
+        const posicion = this.pokemonSeleccionado.habilidades.findIndex(el => el.id === h.id);
+        if (posicion !== -1) {
+          h.checked = true;
+          //Guardamos en el array
+
+          //this.habilidades.forEach(h => this.habilidades.push(h));
+
+          //Guardamos en el formulario
+
+          const habilidad = this.createHabilidadesFormGroup();
+
+          habilidad.get('id').setValue(h.id);
+          habilidad.get('nombre').setValue(h.nombre);
+          this.formHabilidades.push(habilidad);
+
+        } else {
+          h.checked = false;
+        }
+        return h;
+      });
+    }
+
+
+  }
 
 }

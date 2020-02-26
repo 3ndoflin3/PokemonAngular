@@ -30,11 +30,9 @@ export class PokemonService implements IPokemonService {
     console.trace('PokemonService getPokemon ' + url);
     return this.http.get(url);
   }
-  getCaracteristicas(id: number): Observable<any> {
-    throw new Error("Method not implemented.");
-  }
+
   getById(id: number) {
-    const url = 'http://localhost:3000/pokemon/${id}'; 
+    const url = 'http://localhost:3000/pokemon/' + id; 
     console.trace('PoekemonService getById ' + url); 
     return this.http.get(url);
 
@@ -42,7 +40,7 @@ export class PokemonService implements IPokemonService {
 
   updatePokemon(pokemon: Pokemon): Observable<any>{
     //const url = 'http://localhost:8080/pokemon-rest/api/pokemon/' + pokemon.id;
-    const url = 'http://localhost:3000/pokemon/${id}';
+    const url = 'http://localhost:3000/pokemon/' + pokemon.id;
     return this.http.put(url, pokemon);
   }
 
@@ -50,7 +48,6 @@ export class PokemonService implements IPokemonService {
 
   createPokemon(pokemon: Pokemon): Observable<Pokemon>{
     //const url = 'http://localhost:8080/pokemon-rest/api/pokemon/';
-    //const url = 'http://192.168.0.69:8080/pokemon-rest/api/pokemon/';
     
     const url = 'http://localhost:3000/pokemon/';
 
@@ -61,8 +58,7 @@ export class PokemonService implements IPokemonService {
 
   delete(id: number){
     //const url = 'http://localhost:8080/pokemon-rest/api/pokemon/' + id;
-    //const url = 'http://192.168.0.69:8080/pokemon-rest/api/pokemon/';
-    const url = 'http://localhost:3000/pokemon/${id}';
+    const url = 'http://localhost:3000/pokemon/' + id;
     console.debug('metodo delete');
 
     return this.http.delete<Pokemon>(url);

@@ -12,7 +12,7 @@
         <button type="submit">Buscar</button>
     </div>
 
-    <button (click) = limpiarFormulario()>So Clean </button>
+    <button (click) = limpiarFormulario()>Limpiar </button>
     <!-- <div class="col">
         <ul class="list-group">
             <li *ngFor="let h of habilidades" class="list-group-item {{pokemon==pokemonSeleccionado?'active':''}}"
@@ -46,10 +46,10 @@
         </ul>
     </div>
     <div class="col">
-        <div class="card" *ngIf="hayPokemon" style="width: 18rem;">
+        <div class="card"  style="width: 18rem;">
             <div class="card-body">
-                {{ formulario.value | json }}
-                {{ formulario.status | json }}
+                <!-- {{ formulario.value | json }}
+                {{ formulario.status | json }} -->
                 <!-- {{habilidades | json}} -->
                 <br>    
                 <form [formGroup]="formulario" (ngSubmit) = "enviar(formulario.value)">
@@ -64,12 +64,23 @@
 
                     </div><!-- END OF NAME FORM GROUP -->
 
-                    <div class="form-group form-check" *ngFor="let h of habilidades">
-                        <!-- {{h | json}} -->
+                    <!-- <div class="form-group form-check" *ngFor="let h of habilidades">
+                                  {{h | json}} 
                       <input type="checkbox" class="form-check-input" id="exampleCheck1">
                       <label class="form-check-label" for="exampleCheck1">{{h.Habilidad}}</label>
-                    </div> <!-- END OF CHECKBOX FORMGROUP -->
-                    <input type="submit" [disabled]="formulario.invalid" class="btn btn-primary" value="Crear">
+                    </div>  --><!-- END OF CHECKBOX FORMGROUP -->
+                    <!--ZONA DE HABILIDADES-->
+                    <div *ngFor="let h of habilidades">
+
+                        <div class="custom-control custom-checkbox">
+                            <input type="checkbox" class="custom-control-input" name="options" value="{{h.id}}"
+                                (change)="checkCambiado(h)" id="check{{h.id}}" [checked]="h.checked">
+                            <label class="custom-control-label" for="check{{h.id}}">{{h.Habilidad | titlecase }}</label>
+                        </div>
+
+                    </div>
+                    
+                    <input type="submit" [disabled]="formulario.invalid" class="btn btn-primary" value="{{(pokemonSeleccionado.id===0)?'Crear':'Actualizar'}}">
                 </form> <!-- END OF FORM -->
             </div> <!-- END OF CARD BODY -->
         </div><!-- END OF CARD -->
