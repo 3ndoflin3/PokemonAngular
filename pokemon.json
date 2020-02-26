@@ -1,69 +1,419 @@
 {
   "pokemon": [
     {
-      "id": 17,
-      "nombre": "charmeleon",
-      "imagen": "https://www.geek.com/wp-content/uploads/2019/04/pantherchameleon1-625x352.jpg",
+      "id": 1,
+      "nombre": "pikachu",
+      "imagen": "https://scontent.fvit1-1.fna.fbcdn.net/v/t1.0-9/13669614_1030328210369325_7536894018364675746_n.png?_nc_cat=107&_nc_sid=a61e81&_nc_ohc=VBExE8ghLh0AX9AYDMK&_nc_ht=scontent.fvit1-1.fna&oh=bf46dc66dcc03149f671a05938b1fa50&oe=5EF4025B",
       "habilidades": [
         {
-          "Habilidad": "impasible",
-          "id": 1
-        },
-        {
-          "Habilidad": "foco interno",
           "id": 2
         },
         {
-          "Habilidad": "pararayos",
+          "id": 7
+        },
+        {
           "id": 4
         },
         {
-          "Habilidad": "ascua",
-          "id": 6
-        }
-      ]
-    },
-    {
-      "id": 1,
-      "nombre": "lucario",
-      "imagen": "https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/11ea81db-083a-4971-ba53-5e684fe179cd/dab4inf-8802e701-8bbf-4e6f-b7d2-98a42215dcad.png/v1/fill/w_369,h_367,q_80,strp/nick_the_lucario_meme_downloadable_base_by_unownace_dab4inf-fullview.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9MzY3IiwicGF0aCI6IlwvZlwvMTFlYTgxZGItMDgzYS00OTcxLWJhNTMtNWU2ODRmZTE3OWNkXC9kYWI0aW5mLTg4MDJlNzAxLThiYmYtNGU2Zi1iN2QyLTk4YTQyMjE1ZGNhZC5wbmciLCJ3aWR0aCI6Ijw9MzY5In1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmltYWdlLm9wZXJhdGlvbnMiXX0.rk154x3eHfHRdTeZXXft82pwvnOv5V2JFfvOQPuwITo",
-      "habilidades": [
+          "id": 1,
+          "nombre": "impasible"
+        },
         {
-          "id": 0
+          "id": 2
+        },
+        {
+          "id": 7
+        },
+        {
+          "id": 1
+        },
+        {
+          "id": 4
+        },
+        {
+          "id": 7
+        },
+        {
+          "id": 1
+        },
+        {
+          "id": 1,
+          "nombre": "impasible"
+        },
+        {
+          "id": 7,
+          "nombre": "hedor"
+        },
+        {
+          "id": 2
+        },
+        {
+          "id": 7
+        },
+        {
+          "id": 1
+        },
+        {
+          "id": 4
+        },
+        {
+          "id": 2
+        },
+        {
+          "id": 7
+        },
+        {
+          "id": 1
+        },
+        {
+          "id": 4
+        },
+        {
+          "id": 2,
+          "nombre": "foco interno"
+        },
+        {
+          "id": 7,
+          "nombre": "hedor"
+        },
+        {
+          "id": 2
+        },
+        {
+          "id": 7
+        },
+        {
+          "id": 1
+        },
+        {
+          "id": 4
+        },
+        {
+          "id": 2
+        },
+        {
+          "id": 7
+        },
+        {
+          "id": 1
+        },
+        {
+          "id": 4
+        },
+        {
+          "id": 2
+        },
+        {
+          "id": 7
+        },
+        {
+          "id": 1
+        },
+        {
+          "id": 4
         }
       ]
     },
     {
       "id": 2,
       "nombre": "pikachu",
-      "imagen": "https://pics.me.me/pikachu-in-gulag-1930-colorized-insert-dead-pikachu-meme-here-42787528.png",
+      "imagen": "https://scontent.fvit1-1.fna.fbcdn.net/v/t1.0-9/13669614_1030328210369325_7536894018364675746_n.png?_nc_cat=107&_nc_sid=a61e81&_nc_ohc=VBExE8ghLh0AX9AYDMK&_nc_ht=scontent.fvit1-1.fna&oh=bf46dc66dcc03149f671a05938b1fa50&oe=5EF4025B",
       "habilidades": [
         {
-          "Habilidad": "pararayos",
+          "id": 7
+        },
+        {
           "id": 4
         },
         {
-          "Habilidad": "electricidad estatica",
-          "id": 5
-        }
-      ]
-    },
-    {
-      "id": 3,
-      "nombre": "charmander",
-      "imagen": "https://assets.pokemon.com/assets/cms2/img/pokedex/full/004.png",
-      "habilidades": [
+          "id": 1,
+          "nombre": "impasible"
+        },
         {
-          "Habilidad": "impasible",
+          "id": 2
+        },
+        {
+          "id": 7
+        },
+        {
           "id": 1
         },
         {
-          "Habilidad": "justiciero",
-          "id": 3
+          "id": 4
         },
         {
-          "Habilidad": "ascua",
-          "id": 6
+          "id": 7
+        },
+        {
+          "id": 1
+        },
+        {
+          "id": 1,
+          "nombre": "impasible"
+        },
+        {
+          "id": 7,
+          "nombre": "hedor"
+        },
+        {
+          "id": 2
+        },
+        {
+          "id": 7
+        },
+        {
+          "id": 1
+        },
+        {
+          "id": 4
+        },
+        {
+          "id": 2
+        },
+        {
+          "id": 7
+        },
+        {
+          "id": 1
+        },
+        {
+          "id": 4
+        },
+        {
+          "id": 2,
+          "nombre": "foco interno"
+        },
+        {
+          "id": 7,
+          "nombre": "hedor"
+        },
+        {
+          "id": 2
+        },
+        {
+          "id": 7
+        },
+        {
+          "id": 1
+        },
+        {
+          "id": 4
+        },
+        {
+          "id": 2
+        },
+        {
+          "id": 7
+        },
+        {
+          "id": 1
+        },
+        {
+          "id": 4
+        },
+        {
+          "id": 2
+        },
+        {
+          "id": 7
+        },
+        {
+          "id": 1
+        },
+        {
+          "id": 4
+        },
+        {
+          "id": 2
+        },
+        {
+          "id": 7
+        },
+        {
+          "id": 1
+        },
+        {
+          "id": 4
+        },
+        {
+          "id": 2
+        },
+        {
+          "id": 7
+        },
+        {
+          "id": 1
+        },
+        {
+          "id": 4
+        },
+        {
+          "id": 2
+        },
+        {
+          "id": 7
+        },
+        {
+          "id": 1
+        },
+        {
+          "id": 4
+        },
+        {
+          "id": 2
+        },
+        {
+          "id": 7
+        },
+        {
+          "id": 1
+        },
+        {
+          "id": 4
+        },
+        {
+          "id": 7
+        },
+        {
+          "id": 1
+        },
+        {
+          "id": 2
+        },
+        {
+          "id": 7
+        },
+        {
+          "id": 1
+        },
+        {
+          "id": 4
+        },
+        {
+          "id": 2
+        },
+        {
+          "id": 7
+        },
+        {
+          "id": 1
+        },
+        {
+          "id": 4
+        },
+        {
+          "id": 2
+        },
+        {
+          "id": 7
+        },
+        {
+          "id": 1
+        },
+        {
+          "id": 4
+        },
+        {
+          "id": 2
+        },
+        {
+          "id": 7
+        },
+        {
+          "id": 1
+        },
+        {
+          "id": 4
+        },
+        {
+          "id": 7
+        },
+        {
+          "id": 1
+        },
+        {
+          "id": 2
+        },
+        {
+          "id": 7
+        },
+        {
+          "id": 1
+        },
+        {
+          "id": 4
+        },
+        {
+          "id": 2
+        },
+        {
+          "id": 7
+        },
+        {
+          "id": 1
+        },
+        {
+          "id": 4
+        },
+        {
+          "id": 7
+        },
+        {
+          "id": 1
+        },
+        {
+          "id": 2
+        },
+        {
+          "id": 7
+        },
+        {
+          "id": 1
+        },
+        {
+          "id": 4
+        },
+        {
+          "id": 2
+        },
+        {
+          "id": 7
+        },
+        {
+          "id": 1
+        },
+        {
+          "id": 4
+        },
+        {
+          "id": 7
+        },
+        {
+          "id": 1
+        },
+        {
+          "id": 2
+        },
+        {
+          "id": 7
+        },
+        {
+          "id": 1
+        },
+        {
+          "id": 4
+        },
+        {
+          "id": 2
+        },
+        {
+          "id": 7
+        },
+        {
+          "id": 1
+        },
+        {
+          "id": 4
         }
       ]
     },

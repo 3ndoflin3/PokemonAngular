@@ -32,7 +32,7 @@ export class PokemonFormComponent implements OnInit {
         '', // Valor inicial
         [Validators.required, Validators.minLength(2), Validators.maxLength(50)]
       ),
-      imagen: new FormControl('', [Validators.required, Validators.minLength(2), Validators.maxLength(200)]),
+      imagen: new FormControl('', [Validators.required, Validators.minLength(2), Validators.maxLength(250)]),
        habilidades : this.builder.array([], Validators.minLength(1))
     });
     
@@ -119,10 +119,10 @@ export class PokemonFormComponent implements OnInit {
     this.formulario.get('id').setValue(pokemon.id);
     this.formulario.get('nombre').setValue(pokemon.nombre);
     this.formulario.get('imagen').setValue(pokemon.imagen);
-    if (this.pokemonSeleccionado) {
-      this.marcarHabilidades(this.pokemonSeleccionado);
-    }
+    
+    
     this.pokemonSeleccionado =  pokemon;
+    this.marcarHabilidades(this.pokemonSeleccionado);
 
 
   }//seleccionarPokemon
@@ -130,8 +130,12 @@ export class PokemonFormComponent implements OnInit {
 
   enviar( formData ) {
     console.debug('click en enviar %o', formData);
-    
-      if(formData.id === 0){
+    this.pokemon.id = formData.id;
+    this.pokemon.nombre = formData.nombre;
+    this.pokemon.imagen = formData.imagen;
+    this.pokemon.habilidades = (formData.habilidades);
+
+      if(this.pokemon.id === 0){
         this.crear(formData);
       }else{
         this.update(formData);
@@ -259,7 +263,7 @@ export class PokemonFormComponent implements OnInit {
     let pokemon = new Pokemon();
     pokemon.nombre = form.value.nombre;
     pokemon.imagen = form.value.imagen;
-    
+    console.debug('Imagen pokemon form %s', form.value.imagen);
     //Recuperar las habilidades
     form.value.habilidades.map(el => {
       pokemon.addHabilidad(el.nombre);
