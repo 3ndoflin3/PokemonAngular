@@ -123,5 +123,27 @@
 			"Habilidad": "electricidad estatica",
 			"id": 5
 		}]
+    }],
+    "habilidades": [{
+		"Habilidad": "ascua",
+		"id": 6
+	}, {
+		"Habilidad": "electricidad estatica",
+		"id": 5
+	}, {
+		"Habilidad": "foco interno",
+		"id": 2
+	}, {
+		"Habilidad": "hedor",
+		"id": 7
+	}, {
+		"Habilidad": "impasible",
+		"id": 1
+	}, {
+		"Habilidad": "justiciero",
+		"id": 3
+	}, {
+		"Habilidad": "pararayos",
+		"id": 4
 	}]
 }
