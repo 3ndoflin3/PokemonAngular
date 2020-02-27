@@ -24,8 +24,6 @@ export class CrearComponent implements OnInit {
     //Declaramos el array de habilidades de dentro del formulario
     formHabilidades: FormArray;
   
-    // Regex para comprobar el formato de la URL
-    urlRegex: any;
   
     //Array de habilidades (posteriormente se añadirán)
     habilidades: Array<any>;
@@ -46,9 +44,6 @@ export class CrearComponent implements OnInit {
   
       //Inicializamos el pokemon que vamos a utilizar 
       this.pokemon = new Pokemon();
-  
-      //Inicializamos regex
-      this.urlRegex = /(^|\s)((https?:\/\/)?[\w-]+(\.[\w-]+)+\.?(:\d+)?(\/\S*)?)/gi;
   
       // Mensajes
       this.mensaje = new Mensaje();
@@ -90,8 +85,7 @@ export class CrearComponent implements OnInit {
         imagen: new FormControl(
           '', // valor inicial
           [
-            Validators.required,
-            Validators.pattern(this.urlRegex)
+            Validators.required
           ],
         ),// Ahora vamos a crear el array dentro del formulario
         habilidades: this.builder.array([], // Se crea el array vacío
@@ -245,10 +239,14 @@ export class CrearComponent implements OnInit {
   
     }// limpiarFormulario()
   
-    eliminarPokemon(pokemon) {
+    eliminarPokemon($event, pokemon) {
       //Ventana modal para confirmar que se desea eliminar el pokemon
       let opcion = confirm('¿Estás seguro de eliminar el pokemon '.concat(pokemon.nombre).concat('?'));
-      console.debug('Pokemon %o', pokemon)
+      console.debug('Pokemon %o', pokemon);
+
+      event.stopPropagation();
+      this.seleccionarPokemon(pokemon);
+
       if (opcion) {
         this.pokemonService.delete(this.pokemonSeleccionado.id).subscribe(
           data => {
@@ -265,7 +263,8 @@ export class CrearComponent implements OnInit {
           },
   
           () => {
-            console.debug('Finaliza la petición')
+            console.debug('Finaliza la petición');
+            this.limpiarFormulario();
           }
         );
       }
@@ -301,6 +300,7 @@ export class CrearComponent implements OnInit {
   
           () => {
             console.debug('Finaliza la petición');
+            
             this.obtenerListado();
           }
         );
@@ -315,6 +315,7 @@ export class CrearComponent implements OnInit {
             this.mensaje.tipoMensaje = 'success';
             this.mensaje.mensaje = 'Se he actualizado correctamente el pokemon ' + this.pokemonSeleccionado.nombre + '.';
             this.obtenerListado();
+            window.location.reload();
           },
   
           error => {
@@ -324,7 +325,8 @@ export class CrearComponent implements OnInit {
           },
   
           () => {
-            console.debug('Finaliza la petición')
+            console.debug('Finaliza la petición');
+
           }
         );
   

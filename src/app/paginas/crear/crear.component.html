@@ -19,7 +19,7 @@
                     <b>{{p.id}}</b><img src="{{p.imagen}}" class="imagen" alt="imagen del pokemon {{p.nombre}}"> -
                     <span>
                         {{p.nombre | titlecase }}</span>
-                    <button class="fas fa-trash-alt boton-eliminar" (click)="eliminarPokemon(p)">Eliminar</button>
+                    <button class="fas fa-trash-alt boton-eliminar" (click)="eliminarPokemon($event, p)">Eliminar</button>
                 </div>
             </li>
         </ul>
